@@ -1,0 +1,88 @@
+<template>
+    <template if:false={isBookingSuccessful}>
+        <div class="bookmyshow-container">
+            <lightning-card title="Movie Booking v53" icon-name="standard:ticket" class="bookmyshow-card">
+                <div class="booking-form-container">
+                    <div class="form-group">
+                        <lightning-input type="text" label="Customer Name" name="customerName" value={customerName} onchange={handleCustomerNameChange} class="bookmyshow-input"></lightning-input>
+                    </div>
+                    <div class="form-group">
+                        <lightning-combobox name="citySelector" label="Select a City" value={selectedCity} options={cityOptions} onchange={handleCityChange} class="bookmyshow-combobox"></lightning-combobox>
+                    </div>
+                    <div class="form-group">
+                        <lightning-combobox name="movieSelector" label="Select a Movie" value={selectedMovie} options={movieOptions} onchange={handleMovieChange} class="bookmyshow-combobox"></lightning-combobox>
+                    </div>
+                    <div class="form-group">
+                        <lightning-combobox name="theatreSelector" label="Select a Theatre" value={selectedTheatre} options={theatreOptions} onchange={handleTheatreChange} class="bookmyshow-combobox"></lightning-combobox>
+                    </div>
+                </div>
+                <div class="bookmyshow-showtime-container">
+                    <template if:true={showtimeOptions.length}>
+                        <template for:each={showtimeOptions} for:item="showtime">
+                            <div key={showtime.value} class="bookmyshow-showtime-tile" onclick={handleShowtimeClick} data-showtime-id={showtime.value}>
+                                <div class="bookmyshow-showtime-header">
+                                    <span class="bookmyshow-showtime-label">{showtime.label}</span>
+                                </div>
+                                <div class="bookmyshow-showtime-details">
+                                    <p class="bookmyshow-movie-name">Movie: {selectedMovieName}</p>
+                                    <p class="bookmyshow-detail">Available Seats: {showtime.availableSeats}</p>
+                                    <p class="bookmyshow-detail">Ticket Price: {showtime.ticketPrice}</p>
+                                    <div class="form-group">
+                                        <lightning-input type="number" label="Number of Seats" name="numberOfSeats" value={showtime.numberOfSeats} onchange={handleSeatsChange} data-showtime-id={showtime.value} min="1" formatter="decimal" class="bookmyshow-input"></lightning-input>
+                                    </div>
+                                    <lightning-button variant="brand" label="Book Now" title="Book Now" onclick={handleBooking} data-showtime-id={showtime.value} class="bookmyshow-button"></lightning-button>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+
+        <template if:true={isBookingSuccessful}>
+            <div class="bookmyshow-container">
+                <lightning-card title="Booking Confirmation" icon-name="standard:bookmark" class="bookmyshow-card">
+                    <div class="booking-confirmation-details">
+                        <h2 class="booking-title">Your Booking Details</h2>
+                            <template if:true={movieData}>
+                                    <div class="movie-poster">
+                                        <img src={movieData.Poster} alt={movieData.Title} />
+                                    </div>
+                            </template>
+                            <div class="booking-detail-container">
+                            <div class="booking-detail">
+                                <span class="booking-label">Customer Name:</span>
+                                <span class="booking-value">{customerName_b}</span>
+                            </div>
+                            <div class="booking-detail">
+                                <span class="booking-label">Movie Name:</span>
+                                <span class="booking-value">{movieName_b}</span>
+                            </div>
+                            <div class="booking-detail">
+                                <span class="booking-label">Number of Seats:</span>
+                                <span class="booking-value">{numberOfSeats_b}</span>
+                            </div>
+                            <div class="booking-detail">
+                                <span class="booking-label">Show Time:</span>
+                                <span class="booking-value">{showTime_b}</span>
+                            </div>
+                            <div class="booking-detail">
+                                <span class="booking-label">Theater Name:</span>
+                                <span class="booking-value">{theaterName_b}</span>
+                            </div>
+                            <div class="booking-detail">
+                                <span class="booking-label">Total Price:</span>
+                                <span class="booking-value">{totalPrice_b}</span>
+                            </div>
+                            <div class="booking-detail">
+                                <span class="booking-label">Booking Date:</span>
+                                <span class="booking-value">{bookingDate_b}</span>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-card>
+            </div>
+        </template>
+
+</template>

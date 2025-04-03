@@ -1,0 +1,143 @@
+.bookmyshow-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #005099;
+}
+
+.bookmyshow-card {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* padding: 20px; */
+}
+
+.booking-form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.bookmyshow-combobox {
+    margin-bottom: 0;
+}
+
+.bookmyshow-input {
+    margin-bottom: 0;
+}
+
+.bookmyshow-showtime-container {
+    /* display: grid; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* gap: 20px; */
+}
+
+.bookmyshow-showtime-tile {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    cursor: pointer;
+    width: 250px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Add margin bottom to separate tiles */
+    display: block; /* Display tiles as block elements */
+}
+
+.bookmyshow-showtime-header {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #0070d2;
+}
+
+.bookmyshow-showtime-label {
+    color: #0070d2;
+}
+
+.bookmyshow-movie-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.bookmyshow-detail {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.bookmyshow-button {
+    margin-top: 16px;
+    background-color: #0070d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bookmyshow-button:hover {
+    background-color: #005099;
+}
+
+.booking-confirmation-details {
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.booking-title {
+    color: #0070d2;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.booking-detail-container {
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 20px;
+}
+
+.booking-detail {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-label {
+    color: #555;
+    font-weight: bold;
+}
+
+.booking-value {
+    color: #0070d2;
+}
+
+.movie-poster {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}

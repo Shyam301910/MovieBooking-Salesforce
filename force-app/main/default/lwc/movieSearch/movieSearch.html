@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Movie Search v2" icon-name="standard:search" class="movie-search-card">
+        <div class="slds-m-around_medium">
+            <div class="movie-search-container">
+                <lightning-input
+                    label="Enter Movie Title"
+                    onchange={handleSearchChange}
+                    value={searchText}
+                    class="movie-search-input"
+                ></lightning-input>
+                <lightning-button
+                    variant="brand"
+                    label="Search"
+                    onclick={searchMovies}
+                    disabled={isSearching}
+                    class="movie-search-button"
+                ></lightning-button>
+            </div>
+        </div>
+        <div class="slds-m-around_medium">
+            <template if:true={isSearching}>
+                <div class="movie-spinner-container">
+                    <lightning-spinner
+                        alternative-text="Searching..."
+                        class="movie-spinner"
+                    ></lightning-spinner>
+                </div>
+            </template>
+            <template if:true={movieData}>
+                <div class="movie-details-container">
+                    <div class="movie-poster">
+                        <img src={movieData.Poster} alt={movieData.Title} />
+                    </div>
+                    <div class="movie-info">
+                        <h2 class="movie-title">{movieData.Title}</h2>
+                        <div class="movie-details">
+                            <p><span class="movie-label">Year:</span> {movieData.Year}</p>
+                            <p><span class="movie-label">Released:</span> {movieData.Released}</p>
+                            <p><span class="movie-label">Runtime:</span> {movieData.Runtime}</p>
+                            <p><span class="movie-label">Genre:</span> {movieData.Genre}</p>
+                            <p><span class="movie-label">Type:</span> {movieData.Type}</p>
+                            <p><span class="movie-label">Director:</span> {movieData.Director}</p>
+                            <p><span class="movie-label">Writer:</span> {movieData.Writer}</p>
+                            <p><span class="movie-label">Actors:</span> {movieData.Actors}</p>
+                            <p class="movie-plot"><span class="movie-label">Plot:</span> {movieData.Plot}</p>
+                            <p><span class="movie-label">Language:</span> {movieData.Language}</p>
+                            <p><span class="movie-label">Country:</span> {movieData.Country}</p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
